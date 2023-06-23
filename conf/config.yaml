@@ -1,0 +1,10 @@
+project:
+    name: aero_test_project
+
+env:
+    args:
+        load_dt: ???
+
+defaults:
+    - env: ???
+    - override hydra/job_logging: custom

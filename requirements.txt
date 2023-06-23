@@ -1,0 +1,5 @@
+requests
+hydra-core == 1.1.0
+pandas
+psycopg2
+openpyxl
