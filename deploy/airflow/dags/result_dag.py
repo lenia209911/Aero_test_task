@@ -30,6 +30,7 @@ with DAG(dag_id='result_dag', default_args=default_args, schedule_interval='0 0/
         from colorama import Back, Fore, Style
         from sqlalchemy import create_engine
 
+        print("Start load")
         response_API = requests.get('https://random-data-api.com/api/cannabis/random_cannabis?size=100')
         first_data = response_API.text
         data = json.loads(first_data)
@@ -72,7 +73,7 @@ with DAG(dag_id='result_dag', default_args=default_args, schedule_interval='0 0/
 
                 '''
             df.to_sql('result_table', engine, if_exists='append', index=False)
-
+        conn.close
         print('Finish work')
 
     resutl_task_load_to_date_posgres_task = resutl_task_load_to_date_posgres()
